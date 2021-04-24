@@ -1,4 +1,4 @@
-package application;
+package finalProject;
 
 import java.io.Serializable;
 
@@ -10,13 +10,14 @@ public class Classified implements Serializable{
 	private int year;
 	private String contactName;
 	private String contactNumber;
+	private static int latestID;
 	
 	public Classified(){
 
 	}
 	
-	public Classified(int adNumber, String make, String model, int year, String contactName, String contactNumber) {
-		this.setAdNumber(adNumber);
+	public Classified(String make, String model, int year, String contactName, String contactNumber) {
+		this.setAdNumber(generateID());
 		this.setMake(make);
 		this.setModel(model);
 		this.setYear(year);
@@ -72,6 +73,19 @@ public class Classified implements Serializable{
 		this.contactNumber = contactNumber;
 	}
 	
-	
+	private int generateID() 
+	{
+		int nextID = getLatestID() + 1;
+		setLatestID(nextID);
+		return nextID;
+	}
+
+	public int getLatestID() {
+		return latestID;
+	}
+
+	public static void setLatestID(int id) {
+		latestID = id;
+	}
 	
 }

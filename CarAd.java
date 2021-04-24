@@ -5,22 +5,16 @@ public class CarAd extends Classified {
 	
 	private int horsepower;
     private int numberWheels;
-    private int engineSize;
-    private int tireSize;
     
     public CarAd() {
         this.horsepower = 0;
         this.numberWheels = 0;
-        this.engineSize = 0;
-        this.tireSize = 0;
     }
     
-    public CarAd(int horsepower, int numberWheels, int engineSize, int tireSize, int adNumber, String make, String model, int year, String contactName, String contactNumber) {
-        super(adNumber, make, model, year, contactName, contactNumber);
+    public CarAd(String make, String model, int year, String contactName, String contactNumber, int horsepower, int numberWheels) {
+        super(make, model, year, contactName, contactNumber);
         this.setHorsepower(horsepower);
         this.setNumberWheels(numberWheels);
-        this.setEngineSize(engineSize);
-        this.setTireSize(tireSize);
     }
     
     public int getHorsepower() {
@@ -39,26 +33,14 @@ public class CarAd extends Classified {
         this.numberWheels = numberWheels;
     }
     
-    public int getEngineSize() {
-        return engineSize;
-    }
-    
-    public void setEngineSize(int engineSize) {
-        this.engineSize = engineSize;
-    }
-    
-    public int getTireSize() {
-        return tireSize;
-    }
-    
-    public void setTireSize(int tireSize) {
-        this.tireSize = tireSize;
-    }
-    
     public String toString() {
-        return "Horsepower: " + this.horsepower
-              +"\nNumber of Wheels: " + this.numberWheels
-              +"\nEngine Size: " + this.engineSize
-              +"\nTire Size: " + this.tireSize;
+    	String message
+        = "\nCar\n" + "Ad Number: " + super.getAdNumber() + "\n" + "Make: " + super.getMake() + "\n" + "Model: "
+        + super.getModel() + "\n" + "Year: " + super.getYear() + "\n" + "Horsepower: "
+        + this.getHorsepower() + "\n" + "Number of Wheels: " + this.getNumberWheels() + "\n" + "Contact Name: "
+        + super.getContactName() + "\n" + "Contact Number: " + super.getContactNumber() + "\n";
+    	return message; 
+
+    	
     }
 }

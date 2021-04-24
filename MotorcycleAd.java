@@ -6,8 +6,8 @@ public class MotorcycleAd extends Classified {
 	private int ccs;
 	private int miles;	
 	
-	public MotorcycleAd(int adNumber, String make, String model, int year, String contactName, String contactNumber, int ccs, int miles) {
-		super(adNumber, make, model, year, contactName, contactNumber);
+	public MotorcycleAd(String make, String model, int year, String contactName, String contactNumber, int ccs, int miles) {
+		super(make, model, year, contactName, contactNumber);
 	
 	}
 

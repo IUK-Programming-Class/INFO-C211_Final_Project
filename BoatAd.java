@@ -5,9 +5,9 @@ public class BoatAd extends Classified {
 	private int horsepower;
 	private int hours;
 
-	public BoatAd(int adNumber, String make, String model, int year, String contactName, String contactNumber,
+	public BoatAd(String make, String model, int year, String contactName, String contactNumber,
 			int horsepower, int hours) {
-		super(adNumber, make, model, year, contactName, contactNumber);
+		super(make, model, year, contactName, contactNumber);
 	}
 
 	public int getHorsepower() {

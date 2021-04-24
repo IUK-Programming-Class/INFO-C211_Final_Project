@@ -1,4 +1,3 @@
-package finalProject;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,8 +22,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class ClassifiedsMenu extends Application {
-	// ArrayLists to store account and customer data
+public class ClassifiedsMenu extends Application{
+    
+    // ArrayLists to store account and customer data
 	ArrayList<Classified> classifieds = new ArrayList<Classified>();
 
 	public static void main(String[] args) {
@@ -200,97 +200,96 @@ public class ClassifiedsMenu extends Application {
 				horsepowerInput1, hoursLabel1, hoursInput1, contactNameLabel1, contactNameInput1, contactNumberLabel1,
 				contactNumberInput1, statusLabel, errorMessage, createButton1);
 		
-/* Change all of these for car ad
- * 
+
 		// Pane for handling boat classified creations
-		GridPane boatAd = new GridPane();
-		boatAd.setPadding(new Insets(10, 10, 10, 10));
-		boatAd.setVgap(8);
-		boatAd.setHgap(10);
-
+		GridPane carAd = new GridPane();
+		carAd.setPadding(new Insets(10, 10, 10, 10));
+		carAd.setVgap(8);
+		carAd.setHgap(10);
+                
 		// Radio Button Boat Ad Pane
-		Label makeLabel1 = new Label("Make:");
-		GridPane.setConstraints(makeLabel1, 0, 0);
-
+		Label makeLabel2 = new Label("Make:");
+		GridPane.setConstraints(makeLabel2, 0, 0);
+                
 		// Radio Button Boat Ad Pane
-		TextField makeInput1 = new TextField();
-		makeInput1.setPromptText("Bayliner");
-		GridPane.setConstraints(makeInput1, 1, 0);
-
+		TextField makeInput2 = new TextField();
+		makeInput2.setPromptText("Toyota");
+		GridPane.setConstraints(makeInput2, 1, 0);
+                
 		// Radio Button Boat Ad Pane
-		Label modelLabel1 = new Label("Model:");
-		GridPane.setConstraints(modelLabel1, 0, 1);
-
+		Label modelLabel2 = new Label("Model:");
+		GridPane.setConstraints(modelLabel2, 0, 1);
+                
 		// Radio Button Boat Ad Pane
-		TextField modelInput1 = new TextField();
-		modelInput1.setPromptText("X-15");
-		GridPane.setConstraints(modelInput1, 1, 1);
-
+		TextField modelInput2 = new TextField();
+		modelInput2.setPromptText("Camry");
+		GridPane.setConstraints(modelInput2, 1, 1);
+                
 		// Radio Button Boat Ad Pane
-		Label yearLabel1 = new Label("Year:");
-		GridPane.setConstraints(yearLabel1, 0, 2);
-
+		Label yearLabel2 = new Label("Year:");
+		GridPane.setConstraints(yearLabel2, 0, 2);
+                
 		// Radio Button Boat Ad Pane
-		TextField yearInput1 = new TextField();
-		yearInput1.setPromptText("2015");
-		GridPane.setConstraints(yearInput1, 1, 2);
-
+		TextField yearInput2 = new TextField();
+		yearInput2.setPromptText("2018");
+		GridPane.setConstraints(yearInput2, 1, 2);
+                
 		// Radio Button Boat Ad Pane
-		Label horsepowerLabel1 = new Label("Horsepower:");
-		GridPane.setConstraints(horsepowerLabel1, 0, 3);
-
+		Label horsepowerLabel2 = new Label("Horsepower:");
+		GridPane.setConstraints(horsepowerLabel2, 0, 3);
+                
 		// Radio Button Boat Ad Pane
-		TextField horsepowerInput1 = new TextField();
-		horsepowerInput1.setPromptText("75");
-		GridPane.setConstraints(horsepowerInput1, 1, 3);
-
+		TextField horsepowerInput2 = new TextField();
+		horsepowerInput2.setPromptText("250");
+		GridPane.setConstraints(horsepowerInput2, 1, 3);
+                
 		// Radio Button Boat Ad Pane
-		Label hoursLabel1 = new Label("Hours:");
-		GridPane.setConstraints(hoursLabel1, 0, 4);
-
+		Label numberWheelsLabel2 = new Label("Number of Wheels: ");
+		GridPane.setConstraints(numberWheelsLabel2, 0, 4);
+                
 		// Radio Button Boat Ad Pane
-		TextField hoursInput1 = new TextField();
-		hoursInput1.setPromptText("175");
-		GridPane.setConstraints(hoursInput1, 1, 4);
-
+		TextField numberWheelsInput2 = new TextField();
+		numberWheelsInput2.setPromptText("4");
+		GridPane.setConstraints(numberWheelsInput2, 1, 4);
+                
 		// Radio Button Boat Ad Pane
-		Label contactNameLabel1 = new Label("Contact Name:");
-		GridPane.setConstraints(contactNameLabel1, 0, 5);
-
+		Label contactNameLabel2 = new Label("Contact Name:");
+		GridPane.setConstraints(contactNameLabel2, 0, 5);
+                
 		// Radio Button Boat Ad Pane
-		TextField contactNameInput1 = new TextField();
-		contactNameInput1.setPromptText("John Doe");
-		GridPane.setConstraints(contactNameInput1, 1, 5);
-
+		TextField contactNameInput2 = new TextField();
+		contactNameInput2.setPromptText("John Doe");
+		GridPane.setConstraints(contactNameInput2, 1, 5);
+                
 		// Radio Button Boat Ad Pane
-		Label contactNumberLabel1 = new Label("Contact Number:");
-		GridPane.setConstraints(contactNumberLabel1, 0, 6);
-
+		Label contactNumberLabel2 = new Label("Contact Number:");
+		GridPane.setConstraints(contactNumberLabel2, 0, 6);
+                
 		// Radio Button Boat Ad Pane
-		TextField contactNumberInput1 = new TextField();
-		contactNumberInput1.setPromptText("xxx-xxx-xxxx");
-		GridPane.setConstraints(contactNumberInput1, 1, 6);
-
+		TextField contactNumberInput2 = new TextField();
+		contactNumberInput2.setPromptText("xxx-xxx-xxxx");
+		GridPane.setConstraints(contactNumberInput2, 1, 6);
+                
 		// Radio Button Boat Ad Pane
-		Label statusLabel1 = new Label("Processing Errors:");
-		GridPane.setConstraints(statusLabel1, 0, 10);
-
+		Label statusLabel2 = new Label("Processing Errors:");
+		GridPane.setConstraints(statusLabel2, 0, 10);
+                
 		// Radio Button Boat Ad Pane
-		TextArea errorMessage1 = new TextArea();
-		GridPane.setConstraints(errorMessage1, 1, 10);
-		errorMessage1.setMaxHeight(100);
-		errorMessage1.setEditable(false);
-
+		TextArea errorMessage2 = new TextArea();
+		GridPane.setConstraints(errorMessage2, 1, 10);
+		errorMessage2.setMaxHeight(100);
+		errorMessage2.setEditable(false);
+                
 		// Radio Button Boat Ad Pane
-		Button createButton1 = new Button("Create");
-		GridPane.setConstraints(createButton1, 1, 7);
-
+		Button createButton2 = new Button("Create");
+		GridPane.setConstraints(createButton2, 1, 7);
+                
 		// Radio Button Boat Panes
-		boatAd.getChildren().addAll(makeLabel1, makeInput1, modelLabel1, modelInput1, yearLabel1, yearInput1, horsepowerLabel1,
-				horsepowerInput1, hoursLabel1, hoursInput1, contactNameLabel1, contactNameInput1, contactNumberLabel1,
-				contactNumberInput1, statusLabel1, errorMessage1, createButton1);
+		carAd.getChildren().addAll(makeLabel2, makeInput2, modelLabel2, modelInput2, yearLabel2, yearInput2, horsepowerLabel2,
+				horsepowerInput2, numberWheelsLabel2, numberWheelsInput2, contactNameLabel2, contactNameInput2, contactNumberLabel2,
+				contactNumberInput2, statusLabel2, errorMessage2, createButton2);
 		
-*/
+
 		
 		// Pane for handling motorcycle classified creations
 		GridPane motorcycleAd = new GridPane();
@@ -466,47 +465,39 @@ public class ClassifiedsMenu extends Application {
 			}
 
 			
-/* Change as needed for Car ad
- * 
- * 
+
 			// Radio Button 2 = Car Classified
-			if (radioGroup.getSelectedToggle() == radioButton1) {
-				borderPane.setCenter(boatAd);
-
-				createButton1.setOnAction(e -> {
+			if (radioGroup.getSelectedToggle() == radioButton2) {
+				borderPane.setCenter(carAd);
+				createButton2.setOnAction(e -> {
 					// Exception handling for mismatch of field requirements using Try/ Catch
-
-					String make = makeInput1.getText();
-					String model = modelInput1.getText();
-					String year = yearInput1.getText();
-					String horsepower = horsepowerInput1.getText();
-					String hours = hoursInput1.getText();
-					String contactName = contactNameInput1.getText();
-					String contactNumber = contactNumberInput1.getText();
+					String make = makeInput2.getText();
+					String model = modelInput2.getText();
+					String year = yearInput2.getText();
+					String horsepower = horsepowerInput2.getText();
+					String numberWheels = numberWheelsInput2.getText();
+					String contactName = contactNameInput2.getText();
+					String contactNumber = contactNumberInput2.getText();
 				
 					int yearInt = Integer.parseInt(year);
 					int horsepowerInt = Integer.parseInt(horsepower);
-					int hoursInt = Integer.parseInt(hours);
-
-					classifieds.add(new BoatAd(123, make, model, yearInt, contactName, contactNumber,
-							horsepowerInt, hoursInt));
-
-					makeInput1.clear();
-					modelInput1.clear();
-					yearInput1.clear();
-					horsepowerInput1.clear();
-					hoursInput1.clear();
-					contactNameInput1.clear();
-					contactNumberInput1.clear();
-
+					int numberWheelsInt = Integer.parseInt(numberWheels);
+					classifieds.add(new CarAd(456, make, model, yearInt, contactName, contactNumber,
+							horsepowerInt, numberWheelsInt));
+					makeInput2.clear();
+					modelInput2.clear();
+					yearInput2.clear();
+					horsepowerInput2.clear();
+					numberWheelsInput2.clear();
+					contactNameInput2.clear();
+					contactNumberInput2.clear();
 					// Alert when classified is opened
 					Alert alert = new Alert(Alert.AlertType.INFORMATION);
 					alert.setContentText("Classified Created Successfully!");
 					alert.show();
-
 				});
 			}
-*/		
+		
 			
 			// Radio Button 3 = MotorcycleAd Classified
 			if (radioGroup.getSelectedToggle() == radioButton3) {
@@ -636,5 +627,4 @@ public class ClassifiedsMenu extends Application {
 		primaryStage.show();
 
 	}
-
 }

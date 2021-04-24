@@ -1,3 +1,4 @@
+package finalProject;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,9 +23,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class ClassifiedsMenu extends Application{
-    
-    // ArrayLists to store account and customer data
+public class ClassifiedsMenu extends Application {
+	// ArrayLists to store account and customer data
 	ArrayList<Classified> classifieds = new ArrayList<Classified>();
 
 	public static void main(String[] args) {
@@ -55,6 +55,16 @@ public class ClassifiedsMenu extends Application{
 				alert.show();
 			}
 		}
+		
+		
+		// Set the highest Ad Number in the arraylist as the Latest ID in Classified class
+		int id = 0;
+		for (Classified ad : classifieds) {
+			if (ad.getAdNumber() > id) {
+				id = ad.getAdNumber();
+			}
+        }
+		Classified.setLatestID(id);
 
 		// Action to handle closing program and saving data when close X button is used
 
@@ -200,96 +210,94 @@ public class ClassifiedsMenu extends Application{
 				horsepowerInput1, hoursLabel1, hoursInput1, contactNameLabel1, contactNameInput1, contactNumberLabel1,
 				contactNumberInput1, statusLabel, errorMessage, createButton1);
 		
-
-		// Pane for handling boat classified creations
+		// Pane for handling Car classified creations
 		GridPane carAd = new GridPane();
 		carAd.setPadding(new Insets(10, 10, 10, 10));
 		carAd.setVgap(8);
 		carAd.setHgap(10);
-                
-		// Radio Button Boat Ad Pane
+		                
+		// Radio Button Car Ad Pane
 		Label makeLabel2 = new Label("Make:");
 		GridPane.setConstraints(makeLabel2, 0, 0);
-                
-		// Radio Button Boat Ad Pane
+		                
+		// Radio Button Car Ad Pane
 		TextField makeInput2 = new TextField();
 		makeInput2.setPromptText("Toyota");
 		GridPane.setConstraints(makeInput2, 1, 0);
-                
-		// Radio Button Boat Ad Pane
+		                
+		// Radio Button Car Ad Pane
 		Label modelLabel2 = new Label("Model:");
 		GridPane.setConstraints(modelLabel2, 0, 1);
-                
-		// Radio Button Boat Ad Pane
+		                
+		// Radio Button Car Ad Pane
 		TextField modelInput2 = new TextField();
 		modelInput2.setPromptText("Camry");
 		GridPane.setConstraints(modelInput2, 1, 1);
-                
-		// Radio Button Boat Ad Pane
+		                
+		// Radio Button Car Ad Pane
 		Label yearLabel2 = new Label("Year:");
 		GridPane.setConstraints(yearLabel2, 0, 2);
-                
-		// Radio Button Boat Ad Pane
+		                
+		// Radio Button Car Ad Pane
 		TextField yearInput2 = new TextField();
 		yearInput2.setPromptText("2018");
 		GridPane.setConstraints(yearInput2, 1, 2);
-                
-		// Radio Button Boat Ad Pane
+		                
+		// Radio Button Car Ad Pane
 		Label horsepowerLabel2 = new Label("Horsepower:");
 		GridPane.setConstraints(horsepowerLabel2, 0, 3);
-                
-		// Radio Button Boat Ad Pane
+		                
+		// Radio Button Car Ad Pane
 		TextField horsepowerInput2 = new TextField();
 		horsepowerInput2.setPromptText("250");
 		GridPane.setConstraints(horsepowerInput2, 1, 3);
-                
-		// Radio Button Boat Ad Pane
+		                
+		// Radio Button Car Ad Pane
 		Label numberWheelsLabel2 = new Label("Number of Wheels: ");
 		GridPane.setConstraints(numberWheelsLabel2, 0, 4);
-                
-		// Radio Button Boat Ad Pane
+		                
+		// Radio Button Car Ad Pane
 		TextField numberWheelsInput2 = new TextField();
 		numberWheelsInput2.setPromptText("4");
 		GridPane.setConstraints(numberWheelsInput2, 1, 4);
-                
-		// Radio Button Boat Ad Pane
+		                
+		// Radio Button Car Ad Pane
 		Label contactNameLabel2 = new Label("Contact Name:");
 		GridPane.setConstraints(contactNameLabel2, 0, 5);
-                
-		// Radio Button Boat Ad Pane
+		                
+		// Radio Button Car Ad Pane
 		TextField contactNameInput2 = new TextField();
 		contactNameInput2.setPromptText("John Doe");
 		GridPane.setConstraints(contactNameInput2, 1, 5);
-                
-		// Radio Button Boat Ad Pane
+		                
+		// Radio Button Car Ad Pane
 		Label contactNumberLabel2 = new Label("Contact Number:");
 		GridPane.setConstraints(contactNumberLabel2, 0, 6);
-                
-		// Radio Button Boat Ad Pane
+		                
+		// Radio Button Car Ad Pane
 		TextField contactNumberInput2 = new TextField();
 		contactNumberInput2.setPromptText("xxx-xxx-xxxx");
 		GridPane.setConstraints(contactNumberInput2, 1, 6);
-                
-		// Radio Button Boat Ad Pane
+		                
+		// Radio Button Car Ad Pane
 		Label statusLabel2 = new Label("Processing Errors:");
 		GridPane.setConstraints(statusLabel2, 0, 10);
-                
-		// Radio Button Boat Ad Pane
+		                
+		// Radio Button Car Ad Pane
 		TextArea errorMessage2 = new TextArea();
 		GridPane.setConstraints(errorMessage2, 1, 10);
 		errorMessage2.setMaxHeight(100);
 		errorMessage2.setEditable(false);
-                
-		// Radio Button Boat Ad Pane
+		              
+		// Radio Button Car Ad Pane
 		Button createButton2 = new Button("Create");
 		GridPane.setConstraints(createButton2, 1, 7);
-                
-		// Radio Button Boat Panes
+		              
+		// Radio Button Car Panes
 		carAd.getChildren().addAll(makeLabel2, makeInput2, modelLabel2, modelInput2, yearLabel2, yearInput2, horsepowerLabel2,
 				horsepowerInput2, numberWheelsLabel2, numberWheelsInput2, contactNameLabel2, contactNameInput2, contactNumberLabel2,
 				contactNumberInput2, statusLabel2, errorMessage2, createButton2);
 		
-
 		
 		// Pane for handling motorcycle classified creations
 		GridPane motorcycleAd = new GridPane();
@@ -444,7 +452,7 @@ public class ClassifiedsMenu extends Application{
 					int horsepowerInt = Integer.parseInt(horsepower);
 					int hoursInt = Integer.parseInt(hours);
 
-					classifieds.add(new BoatAd(123, make, model, yearInt, contactName, contactNumber,
+					classifieds.add(new BoatAd(make, model, yearInt, contactName, contactNumber,
 							horsepowerInt, hoursInt));
 
 					makeInput1.clear();
@@ -465,7 +473,6 @@ public class ClassifiedsMenu extends Application{
 			}
 
 			
-
 			// Radio Button 2 = Car Classified
 			if (radioGroup.getSelectedToggle() == radioButton2) {
 				borderPane.setCenter(carAd);
@@ -482,7 +489,7 @@ public class ClassifiedsMenu extends Application{
 					int yearInt = Integer.parseInt(year);
 					int horsepowerInt = Integer.parseInt(horsepower);
 					int numberWheelsInt = Integer.parseInt(numberWheels);
-					classifieds.add(new CarAd(456, make, model, yearInt, contactName, contactNumber,
+					classifieds.add(new CarAd(make, model, yearInt, contactName, contactNumber,
 							horsepowerInt, numberWheelsInt));
 					makeInput2.clear();
 					modelInput2.clear();
@@ -496,8 +503,7 @@ public class ClassifiedsMenu extends Application{
 					alert.setContentText("Classified Created Successfully!");
 					alert.show();
 				});
-			}
-		
+			}	
 			
 			// Radio Button 3 = MotorcycleAd Classified
 			if (radioGroup.getSelectedToggle() == radioButton3) {
@@ -518,7 +524,7 @@ public class ClassifiedsMenu extends Application{
 				int ccsInt = Integer.parseInt(ccs);
 				int milesInt = Integer.parseInt(miles);
 
-				classifieds.add(new MotorcycleAd(234, make, model, yearInt, contactName, contactNumber,
+				classifieds.add(new MotorcycleAd(make, model, yearInt, contactName, contactNumber,
 						ccsInt, milesInt));
 
 				makeInput3.clear();
@@ -538,56 +544,54 @@ public class ClassifiedsMenu extends Application{
 
 		}
 
-//				// Radio Button 4 = Removes account from ArrayList Account
-//				if (radioGroup.getSelectedToggle() == radioButton4) {
-//					borderPane.setCenter(removeAccount);
-//
-//					removeButton.setOnAction(e -> {
-//						// Exception handling for mismatch of field requirements using Try/ Catch
-//						try {
-//							String customerAccount = customerAccountInput4.getText();
-//							int accountNumberRemove = Integer.parseInt(customerAccount);
-//							Account temp4 = null;
-//
-//							for (Account account : accounts) {
-//								if (account.getAccountNumber() == accountNumberRemove) {
-//									temp4 = account;
-//								}
-//							}
-//							if (temp4 != null) {
-//
-//								Alert confirm = new Alert(AlertType.CONFIRMATION);
-//								confirm.setTitle("Remove Account");
-//								confirm.setHeaderText("Remove " + temp4.getCustomer().getName() + "'s Account #"
-//										+ temp4.getAccountNumber());
-//								confirm.setContentText("Are you sure?");
-//								if (confirm.showAndWait().get() == ButtonType.OK) {
-//
-//									accounts.remove(temp4);
-//									customerAccountInput4.clear();
-//									bankMessage4.clear();
-//									Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//									alert.setContentText("Account Removed!");
-//									alert.show();
-//								}
-//
-//							} else {
-//								bankMessage4.setText("Account Number not found!\n");
-//							}
-//
-//						} catch (NumberFormatException er) {
-//							bankMessage4.setText("Account/Amount: integers only");
-//						}
-//
-//					});
-//				}
-//
+			// Radio Button 4 = Removes ad from ArrayList classifieds
+			if (radioGroup.getSelectedToggle() == radioButton4) {
+				borderPane.setCenter(removeAd);
+					
+				removeButton.setOnAction(e -> {
+					// Exception handling for mismatch of field requirements using Try/ Catch
+					try {
+						String specifiedAd = adNumberInput.getText();
+						int classifiedRemove = Integer.parseInt(specifiedAd);
+						Classified temp4 = null;
+						for (Classified ad : classifieds) {
+							if (ad.getAdNumber() == classifiedRemove) 
+								temp4 = ad;
+						}
+						if (temp4 != null) {
+							Alert confirm = new Alert(AlertType.CONFIRMATION);
+							confirm.setTitle("Remove Ad");
+							confirm.setHeaderText("Remove " + temp4.getMake() + " " + temp4.getModel() + ", Ad #" + temp4.getAdNumber());
+							confirm.setContentText("Are you sure?");
+						
+							if (confirm.showAndWait().get() == ButtonType.OK) {
+								classifieds.remove(temp4);
+								adNumberInput.clear();
+								errorMessage1.clear();
+								Alert alert = new Alert(Alert.AlertType.INFORMATION);
+								alert.setContentText("Ad Removed!");
+								alert.show();
+							}
+						} else {
+							errorMessage1.setText("Ad Number " + specifiedAd + " not found!\n");
+							adNumberInput.clear();
+						}
+					} catch (NumberFormatException er) {
+						errorMessage1.setText("Ad Number must be an integer");
+						adNumberInput.clear();
+					}
+
+				});
+			
+			}
+
 			// Displays Classifieds
 			if (radioGroup.getSelectedToggle() == radioButton5) {
 
 				borderPane.setCenter(txtOutput);
 				txtOutput.setText("************   CLASSIFIEDS   ***********\n" + classifieds);
 			}
+
 
 			// Radio Button 6 = Confirms exit of the program. Closes program and saves data
 			// upon confirmation
@@ -627,4 +631,5 @@ public class ClassifiedsMenu extends Application{
 		primaryStage.show();
 
 	}
+
 }

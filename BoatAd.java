@@ -8,6 +8,8 @@ public class BoatAd extends Classified {
 	public BoatAd(String make, String model, int year, String contactName, String contactNumber,
 			int horsepower, int hours) {
 		super(make, model, year, contactName, contactNumber);
+		this.setHorsepower(horsepower);
+		this.setHours(hours);
 	}
 
 	public int getHorsepower() {

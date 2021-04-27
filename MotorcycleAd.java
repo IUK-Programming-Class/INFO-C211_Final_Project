@@ -8,6 +8,8 @@ public class MotorcycleAd extends Classified {
 	
 	public MotorcycleAd(String make, String model, int year, String contactName, String contactNumber, int ccs, int miles) {
 		super(make, model, year, contactName, contactNumber);
+		this.setCcs(ccs);
+		this.setMiles(miles);
 	
 	}
 

@@ -192,14 +192,14 @@ public class ClassifiedsMenu extends Application {
 		GridPane.setConstraints(contactNumberInput1, 1, 6);
 
 		// Radio Button Boat Ad Pane
-		Label statusLabel = new Label("Processing Errors:");
-		GridPane.setConstraints(statusLabel, 0, 10);
+		Label statusLabel1 = new Label("Processing Errors:");
+		GridPane.setConstraints(statusLabel1, 0, 10);
 
 		// Radio Button Boat Ad Pane
-		TextArea errorMessage = new TextArea();
-		GridPane.setConstraints(errorMessage, 1, 10);
-		errorMessage.setMaxHeight(100);
-		errorMessage.setEditable(false);
+		TextArea errorMessage1 = new TextArea();
+		GridPane.setConstraints(errorMessage1, 1, 10);
+		errorMessage1.setMaxHeight(100);
+		errorMessage1.setEditable(false);
 
 		// Radio Button Boat Ad Pane
 		Button createButton1 = new Button("Create");
@@ -208,7 +208,7 @@ public class ClassifiedsMenu extends Application {
 		// Radio Button Boat Panes
 		boatAd.getChildren().addAll(makeLabel1, makeInput1, modelLabel1, modelInput1, yearLabel1, yearInput1, horsepowerLabel1,
 				horsepowerInput1, hoursLabel1, hoursInput1, contactNameLabel1, contactNameInput1, contactNumberLabel1,
-				contactNumberInput1, statusLabel, errorMessage, createButton1);
+				contactNumberInput1, statusLabel1, errorMessage1, createButton1);
 		
 		// Pane for handling Car classified creations
 		GridPane carAd = new GridPane();
@@ -403,21 +403,21 @@ public class ClassifiedsMenu extends Application {
 		GridPane.setConstraints(adNumberInput, 1, 2);
 
 		// Radio Button Remove Pane
-		Label statusLabel1 = new Label("Processing Errors:");
-		GridPane.setConstraints(statusLabel1, 0, 10);
+		Label statusLabel4 = new Label("Processing Errors:");
+		GridPane.setConstraints(statusLabel4, 0, 10);
 
 		// Radio Button Remove Pane
-		TextArea errorMessage1 = new TextArea();
-		GridPane.setConstraints(errorMessage1, 1, 10);
-		errorMessage1.setMaxHeight(100);
-		errorMessage1.setEditable(false);
+		TextArea errorMessage4 = new TextArea();
+		GridPane.setConstraints(errorMessage4, 1, 10);
+		errorMessage4.setMaxHeight(100);
+		errorMessage4.setEditable(false);
 
 		// Radio Button Remove Pane
 		Button removeButton = new Button("Remove");
 		GridPane.setConstraints(removeButton, 1, 5);
 
 		// Radio Button Remove Pane
-		removeAd.getChildren().addAll(adNumberLabel, adNumberInput, statusLabel1, errorMessage1, removeButton);
+		removeAd.getChildren().addAll(adNumberLabel, adNumberInput, statusLabel4, errorMessage4, removeButton);
 
 		// Radio Button Exit Pane
 		TextArea txtOutput = new TextArea();
@@ -436,10 +436,18 @@ public class ClassifiedsMenu extends Application {
 			// Radio Button 1 = Boat Classified
 			if (radioGroup.getSelectedToggle() == radioButton1) {
 				borderPane.setCenter(boatAd);
-
+				errorMessage1.clear();
+				makeInput1.clear();
+				modelInput1.clear();
+				yearInput1.clear();
+				horsepowerInput1.clear();
+				hoursInput1.clear();
+				contactNameInput1.clear();
+				contactNumberInput1.clear();
+				
 				createButton1.setOnAction(e -> {
 					// Exception handling for mismatch of field requirements using Try/ Catch
-
+				try {
 					String make = makeInput1.getText();
 					String model = modelInput1.getText();
 					String year = yearInput1.getText();
@@ -467,6 +475,11 @@ public class ClassifiedsMenu extends Application {
 					Alert alert = new Alert(Alert.AlertType.INFORMATION);
 					alert.setContentText("Classified Created Successfully!");
 					alert.show();
+					
+				} catch (NumberFormatException er) {
+					errorMessage1.setText("Ad not created. Please enter required information.");
+					adNumberInput.clear();
+				}
 
 				});
 				
@@ -476,8 +489,18 @@ public class ClassifiedsMenu extends Application {
 			// Radio Button 2 = Car Classified
 			if (radioGroup.getSelectedToggle() == radioButton2) {
 				borderPane.setCenter(carAd);
+				errorMessage2.clear();
+				makeInput2.clear();
+				modelInput2.clear();
+				yearInput2.clear();
+				horsepowerInput2.clear();
+				numberWheelsInput2.clear();
+				contactNameInput2.clear();
+				contactNumberInput2.clear();
+				
 				createButton2.setOnAction(e -> {
 					// Exception handling for mismatch of field requirements using Try/ Catch
+				try {	
 					String make = makeInput2.getText();
 					String model = modelInput2.getText();
 					String year = yearInput2.getText();
@@ -502,31 +525,18 @@ public class ClassifiedsMenu extends Application {
 					Alert alert = new Alert(Alert.AlertType.INFORMATION);
 					alert.setContentText("Classified Created Successfully!");
 					alert.show();
+					
+				} catch (NumberFormatException er) {
+					errorMessage2.setText("Ad not created. Please enter required information.");
+					adNumberInput.clear();
+				}
 				});
 			}	
 			
 			// Radio Button 3 = MotorcycleAd Classified
 			if (radioGroup.getSelectedToggle() == radioButton3) {
 				borderPane.setCenter(motorcycleAd);
-
-				createButton3.setOnAction(e -> {
-					// Exception handling for mismatch of field requirements using Try/ Catch
-
-				String make = makeInput3.getText();
-				String model = modelInput3.getText();
-				String year = yearInput3.getText();
-				String ccs = ccsInput3.getText();
-				String miles = milesInput3.getText();
-				String contactName = contactNameInput3.getText();
-				String contactNumber = contactNumberInput3.getText();
-			
-				int yearInt = Integer.parseInt(year);
-				int ccsInt = Integer.parseInt(ccs);
-				int milesInt = Integer.parseInt(miles);
-
-				classifieds.add(new MotorcycleAd(make, model, yearInt, contactName, contactNumber,
-						ccsInt, milesInt));
-
+				errorMessage3.clear();
 				makeInput3.clear();
 				modelInput3.clear();
 				yearInput3.clear();
@@ -534,15 +544,48 @@ public class ClassifiedsMenu extends Application {
 				milesInput3.clear();
 				contactNameInput3.clear();
 				contactNumberInput3.clear();
+				
+				createButton3.setOnAction(e -> {
+					// Exception handling for mismatch of field requirements using Try/ Catch
+					try {
+						
+					String make = makeInput3.getText();
+					String model = modelInput3.getText();
+					String year = yearInput3.getText();
+					String ccs = ccsInput3.getText();
+					String miles = milesInput3.getText();
+					String contactName = contactNameInput3.getText();
+					String contactNumber = contactNumberInput3.getText();
+			
+					
+					int yearInt = Integer.parseInt(year);
+					int ccsInt = Integer.parseInt(ccs);
+					int milesInt = Integer.parseInt(miles);
+					
+					classifieds.add(new MotorcycleAd(make, model, yearInt, contactName, contactNumber,
+						ccsInt, milesInt));
+					
+					makeInput3.clear();
+					modelInput3.clear();
+					yearInput3.clear();
+					ccsInput3.clear();
+					milesInput3.clear();
+					contactNameInput3.clear();
+					contactNumberInput3.clear();
 
-				// Alert when classified is opened
-				Alert alert = new Alert(Alert.AlertType.INFORMATION);
-				alert.setContentText("Classified Created Successfully!");
-				alert.show();
+					// Alert when classified is created
+					Alert alert = new Alert(Alert.AlertType.INFORMATION);
+					alert.setContentText("Classified Created Successfully!");
+					alert.show();
 
-			});
+					} catch (NumberFormatException er) {
+						errorMessage3.setText("Ad not created. Please enter required information.");
+						adNumberInput.clear();
+					}
 
-		}
+				});	
+
+			}
 
 			// Radio Button 4 = Removes ad from ArrayList classifieds
 			if (radioGroup.getSelectedToggle() == radioButton4) {
@@ -589,7 +632,10 @@ public class ClassifiedsMenu extends Application {
 			if (radioGroup.getSelectedToggle() == radioButton5) {
 
 				borderPane.setCenter(txtOutput);
-				txtOutput.setText("************   CLASSIFIEDS   ***********\n" + classifieds);
+				txtOutput.setText("------------- Classifieds ------------");
+				for (Classified ad : classifieds) {
+					txtOutput.appendText(ad + "-------------------------------------");
+				}
 			}
 
 

@@ -1,4 +1,3 @@
-package finalProject;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,8 +22,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class ClassifiedsMenu extends Application {
-	// ArrayLists to store account and customer data
+public class ClassifiedsMenu extends Application{
+    
+    // ArrayLists to store account and customer data
 	ArrayList<Classified> classifieds = new ArrayList<Classified>();
 
 	public static void main(String[] args) {
@@ -610,17 +610,17 @@ public class ClassifiedsMenu extends Application {
 							if (confirm.showAndWait().get() == ButtonType.OK) {
 								classifieds.remove(temp4);
 								adNumberInput.clear();
-								errorMessage1.clear();
+								errorMessage4.clear();
 								Alert alert = new Alert(Alert.AlertType.INFORMATION);
 								alert.setContentText("Ad Removed!");
 								alert.show();
 							}
 						} else {
-							errorMessage1.setText("Ad Number " + specifiedAd + " not found!\n");
+							errorMessage4.setText("Ad Number " + specifiedAd + " not found!\n");
 							adNumberInput.clear();
 						}
 					} catch (NumberFormatException er) {
-						errorMessage1.setText("Ad Number must be an integer");
+						errorMessage4.setText("Ad Number must be an integer");
 						adNumberInput.clear();
 					}
 

@@ -1,9 +1,8 @@
-package finalProject;
-
+//George Adams
 
 public class CarAd extends Classified {
-	
-	private int horsepower;
+    
+    private int horsepower;
     private int numberWheels;
     
     public CarAd() {

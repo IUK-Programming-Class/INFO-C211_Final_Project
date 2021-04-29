@@ -1,10 +1,10 @@
-package finalProject;
+//Nicholas Smith
 
 import java.io.Serializable;
 
-public class Classified implements Serializable{
-	
-	private int adNumber;
+public class Classified implements Serializable {
+    
+        private int adNumber;
 	private String make;
 	private String model;
 	private int year;
@@ -87,5 +87,4 @@ public class Classified implements Serializable{
 	public static void setLatestID(int id) {
 		latestID = id;
 	}
-	
 }
